@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To my Cherine <3 </title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Font: Menggunakan Inter, tapi lebih banyak elemen BOLD */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        .main-bg {
+            /* Latar belakang gradient high-contrast (Pink & Ungu Muda) */
+            background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 100%);
+        }
+        .card {
+            /* Shadow yang lebih dramatis dan tajam */
+            box-shadow: 0 25px 50px rgba(192, 38, 211, 0.4);
+            min-height: 90vh;
+            max-height: 90vh; 
+            overflow-y: auto;
+            position: relative;
+            z-index: 10;
+            border: 4px solid #f0abfc; /* Border ungu untuk kesan mewah */
+        }
+        .interactive-btn {
+            /* Tombol yang lebih eye-catching (Fuchsia) */
+            transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            transform: scale(1);
+            background-color: #d946ef; /* Fuchsia 500 */
+            filter: drop-shadow(0 6px 10px rgba(216, 180, 254, 0.8));
+        }
+        .interactive-btn:hover {
+            transform: scale(1.05);
+            background-color: #c026d3; /* Fuchsia 600 */
+        }
+        .title-style {
+            /* Title style yang lebih tegas */
+            background-color: #f5d0fe; /* Purple 200 */
+            color: #701a75; /* Purple 900 */
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-weight: 900; /* Extra bold */
+            box-shadow: 0 4px 6px rgba(168, 85, 247, 0.2);
+            animation: pulse-title 1.5s infinite alternate;
+        }
+        @keyframes pulse-title {
+            from { transform: scale(1); opacity: 0.9; }
+            to { transform: scale(1.02); opacity: 1; }
+        }
+
+        /* --- Animasi Ikon Melayang (Kartun SVG Transparan) --- */
+        .icon-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 5;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            width: 30px; 
+            height: 30px; 
+            color: #e879f9; /* Warna ikon: Fuchsia 400 */
+            animation: float-up 10s infinite;
+            opacity: 0.8;
+        }
+
+        .floating-icon svg {
+            fill: currentColor;
+            transform: rotate(45deg); /* Memberi sedikit sentuhan 'cool' */
+        }
+        
+        @keyframes float-up {
+            0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+        }
+
+        /* Atur posisi dan delay untuk setiap ikon */
+        .floating-icon:nth-child(1) { left: 10%; animation-delay: 0s; width: 20px; height: 20px; }
+        .floating-icon:nth-child(2) { left: 40%; animation-delay: 2s; width: 35px; height: 35px; }
+        .floating-icon:nth-child(3) { left: 70%; animation-delay: 4s; width: 25px; height: 25px; }
+        .floating-icon:nth-child(4) { left: 25%; animation-delay: 6s; width: 30px; height: 30px; }
+        .floating-icon:nth-child(5) { left: 85%; animation-delay: 8s; width: 22px; height: 22px; }
+        .floating-icon:nth-child(6) { left: 55%; animation-delay: 3s; width: 28px; height: 28px; }
+
+        /* --- Transisi Halaman (dipertahankan) --- */
+        .slide-in { animation: slideIn 0.5s ease-out forwards; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .zoom-in { animation: zoomIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards; }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.5) rotate(-5deg); } to { opacity: 1; transform: scale(1) rotate(0deg); } }
+        .bounce-in { animation: bounceIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both; }
+        @keyframes bounceIn { 0% { opacity: 0; transform: translateY(2000px); } 60% { opacity: 1; transform: translateY(-30px); } 100% { transform: translateY(0); } }
+        .flip-in { animation: flipIn 0.8s ease-in-out forwards; }
+        @keyframes flipIn { from { opacity: 0; transform: rotateX(90deg) scale(0.8); } to { opacity: 1; transform: rotateX(0deg) scale(1); } }
+
+    </style>
+</head>
+<body class="main-bg min-h-screen flex items-center justify-center p-4">
+
+    <!-- Kontainer Ikon Melayang (Kartun SVG Transparan) -->
+    <div class="icon-container">
+        <!-- SVG Bintang (Star) yang lebih stylish -->
+        <div class="floating-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+        </div>
+        <div class="floating-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+        <div class="floating-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+        </div>
+        <div class="floating-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+        <div class="floating-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+        </div>
+        <div class="floating-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Main Container Card -->
+    <div class="card w-full max-w-xl bg-white p-6 md:p-10 rounded-3xl text-center flex flex-col justify-between mx-auto text-gray-700">
+
+        <!-- Konten Halaman Akan Dirender Di Sini -->
+        <div id="main-content" class="flex-grow flex flex-col justify-center transition-all duration-300">
+            <!-- Konten Halaman dimuat oleh JS -->
+        </div>
+
+        <!-- Tombol Navigasi dan Indikator (Footer) -->
+        <div class="mt-8 flex justify-between items-center w-full pt-4 border-t border-rose-100">
+            <button 
+                id="prev-btn"
+                onclick="changePage(-1)"
+                class="bg-fuchsia-100 hover:bg-fuchsia-200 text-fuchsia-600 font-semibold py-2 px-4 rounded-full text-sm transition duration-200 shadow-lg hidden"
+            >
+                &larr; Sebelumnya
+            </button>
+            <div id="page-indicator" class="text-lg text-fuchsia-600 font-extrabold mx-auto">
+                Bab 1/14
+            </div>
+            <button 
+                id="next-btn"
+                onclick="changePage(1)"
+                class="bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-3 px-6 rounded-full text-lg interactive-btn"
+            >
+                Mulai Kisah >>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA APLIKASI: Seluruh 14 Bab Ada di Sini ---
+        const pages = [
+            // Bab 1: Girl Crush Intro
+            { id: 1, title: "Halo, Ratu! (Our Story Begins)", content: "Bersiaplah untuk 14 bab penuh vibe dan janji. Kamu pantas mendapatkan kejutan ini!", transition: 'slide-in', nextText: 'Start the Vibe >>' },
+            
+            // Bab 2: Komplimen Bertahap (INTERAKTIF 1)
+            { id: 2, title: "7 Hal yang Paling Aku Worship", content: ["Kepercayaan diri dan aura boss kamu", "Gaya berpakaian yang selalu on point", "Pola pikir yang dewasa dan ambisius", "Caramu mempertahankan prinsip hidup", "Cinta yang kamu berikan tanpa syarat", "Keberanianmu mencoba hal baru", "Kemampuanmu membuat aku jadi yang terbaik di sampingmu."], transition: 'fade-in', nextText: 'Lanjut' },
+            
+            // Bab 3: Kuis Favorit (INTERAKTIF 2)
+            { id: 3, title: "Siapa Crush Terbesarku?", content: "Bukan aktor Korea, bukan penyanyi. Siapa orang yang paling aku idolakan, bahkan lebih dari aku sendiri?", answer: "Kamu! Karena kamu adalah definisi dari Girl Crush.", transition: 'zoom-in', nextText: 'Lanjut' },
+            
+            // Bab 4: Tempat Foto (Placeholder)
+            { id: 4, title: "Momen Paling Slay Kita", content: "Di sini seharusnya ada foto kita saat kita terlihat paling cool! (Ganti placeholder ini dengan URL foto kita!)", transition: 'bounce-in', nextText: 'Lanjut' },
+            
+            // Bab 5: Pengingat Cinta (INTERAKTIF 3)
+            { id: 5, title: "Satu Kata Kunci Rahasia", content: "Tuliskan satu kata yang mewakili energi kita berdua. (Kata ini akan muncul lagi di Bab Terakhir!)", transition: 'slide-in', nextText: 'Kunci & Lanjut' },
+
+            // Bab 6: Janji Masa Depan
+            { id: 6, title: "Janji untuk Power Couple", content: ["Aku janji akan selalu mendukung semua mimpi dan karirmu, tanpa tapi.", "Aku janji akan selalu jadi partner in crime terbaik saat kamu butuh liburan mendadak.", "Aku janji kita akan membuat semua orang iri melihat betapa hebatnya hubungan kita."], transition: 'flip-in', nextText: 'Lanjut' },
+            
+            // Bab 7: Papan Afirmasi
+            { id: 7, title: "You Are the Main Character", content: "Jangan pernah lupakan, kamu adalah tokoh utama dalam hidupku. Segala yang kamu lakukan adalah worth it.", transition: 'fade-in', nextText: 'Lanjut' },
+            
+            // Bab 8: Pelukan Hangat (Sweet Text)
+            { id: 8, title: "Sebuah High Five & Pelukan", content: "Walaupun temanya Girl Crush, ingat: aku selalu siap menjadi tempatmu beristirahat dan menjadi dirimu sendiri tanpa harus menjadi kuat. Aku selalu di sini.", transition: 'zoom-in', nextText: 'Lanjut' },
+            
+            // Bab 9: Bahasa Cinta
+            { id: 9, title: "Status: Taken by The Best", content: ["Inggris: I Love You, Queen", "Jepang: Kimi wa boku no su-pā-su-tā da", "Spanyol: Eres mi todo y más", "Indonesia: Aku jatuh cinta pada Girl Crush terbaik di dunia!"], transition: 'slide-in', nextText: 'Lanjut' },
+            
+            // Bab 10: Rencana Kencan
+            { id: 10, title: "Misi Date Night Wajib", content: "Kita harus merayakan hubungan kita dengan fine dining di tempat paling mewah, dan kamu harus pakai gaun paling glamorous. Ini perintah! ;)", transition: 'bounce-in', nextText: 'Lanjut' },
+
+            // Bab 11: Surat Cinta (Bagian 1)
+            { id: 11, title: "Surat Dariku (Bagian 1)", content: "Kamu bukan hanya pacar. Kamu adalah inspirasi, motivasi, dan patokan tinggiku. Kamu membuatku ingin menjadi versi terbaik dari diriku. Terima kasih sudah menjadi *role model*ku.", transition: 'fade-in', nextText: 'Lanjut ke Part 2' },
+
+            // Bab 12: Surat Cinta (Bagian 2)
+            { id: 12, title: "Surat Dariku (Bagian 2)", content: "Aku selalu bangga dengan semua pencapaianmu. Kamu adalah leader sejati. Aku akan selalu menjadi cheerleader paling berisik untukmu. Teruslah bersinar, Sayang.", transition: 'flip-in', nextText: 'Hampir Final' },
+            
+            // Bab 13: Penghitungan Waktu
+            { id: 13, title: "Waktu Terbaikku (MVP)", content: "Setiap detik bersamamu adalah 'MVP' (Most Valuable Period) dalam hidupku. Kita tim yang tak terkalahkan.", transition: 'zoom-in', nextText: 'Pesan Final' },
+
+            // Bab 14: Penutup Manis (Final)
+            { id: 14, title: "Bab Unstoppable", content: "Ini adalah akhir dari pesan ini, tapi bukan akhir dari kisah dominasi kita. Bersama, kita tak terhentikan. Aku mencintaimu, my Girl Crush.", transition: 'bounce-in', nextText: 'Selesai!' },
+        ];
+
+        // --- VARIABEL GLOBAL & STATE INTERAKTIF ---
+        let currentPage = 1;
+        const mainContent = document.getElementById('main-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageIndicator = document.getElementById('page-indicator');
+
+        let currentComplimentIndex = 0;
+        let quizAnswerRevealed = false;
+        let collectedInput = ''; 
+
+
+        // --- FUNGSI UTAMA ---
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage >= 1 && newPage <= pages.length) {
+                mainContent.className = 'flex-grow flex flex-col justify-center transition-all duration-300'; 
+                currentPage = newPage;
+                renderPage();
+            }
+        }
+
+        function renderPage() {
+            const pageData = pages[currentPage - 1];
+            let contentHTML = '';
+            
+            mainContent.classList.add(pageData.transition);
+            
+            const titleHTML = <h1 class="text-3xl font-extrabold mb-8"><span class="title-style">${pageData.title}</span></h1>;
+
+            // RENDER BERDASARKAN ID HALAMAN
+            if (pageData.id === 2) {
+                // Halaman INTERAKTIF 1: Compliment List
+                contentHTML = `
+                    ${titleHTML}
+                    <div id="compliment-list" class="space-y-3 px-2 md:px-4">
+                        ${pageData.content.map((item, index) => 
+                            `<div id="comp-${index}" class="comp-item bg-fuchsia-100 p-4 rounded-xl shadow-md text-fuchsia-700 font-bold hidden border-l-4 border-fuchsia-500">
+                                <span class="text-xl text-fuchsia-500 font-extrabold">#</span> ${item}
+                            </div>`).join('')}
+                    </div>
+                    <button id="comp-reveal-btn" onclick="revealNextCompliment()" class="mt-8 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-bold py-3 px-8 rounded-full interactive-btn text-base">
+                        Ungkapkan Komplimen (1/${pageData.content.length})
+                    </button>
+                `;
+                currentComplimentIndex = 0;
+            } else if (pageData.id === 3) {
+                // Halaman INTERAKTIF 2: Quiz
+                contentHTML = `
+                    ${titleHTML}
+                    <p class="text-xl italic mb-8 text-purple-600 font-semibold">${pageData.content}</p>
+                    <div id="quiz-answer" class="message-box bg-purple-100 p-5 rounded-xl shadow-inner hidden border-2 border-purple-400">
+                        <p class="text-lg font-black text-purple-800">Jawaban Sesungguhnya:</p>
+                        <p class="text-xl text-purple-700 mt-2 font-extrabold">${pageData.answer}</p>
+                    </div>
+                    <button id="quiz-btn" onclick="revealQuizAnswer()" class="mt-6 bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full interactive-btn">
+                        Buka Rahasia &rarr;
+                    </button>
+                `;
+                quizAnswerRevealed = false;
+            } else if (pageData.id === 4) {
+                 // Halaman Photo Placeholder
+                contentHTML = `
+                    ${titleHTML}
+                    <div class="w-full h-48 bg-pink-200 border-4 border-dashed border-fuchsia-500 rounded-xl flex items-center justify-center p-4 transform rotate-1">
+                        <p class="text-lg text-fuchsia-700 text-center font-bold">
+                            ${pageData.content} <br>
+                            <span class="text-4xl mt-2 block font-black text-fuchsia-600">PIC</span>
+                        </p>
+                    </div>
+                `;
+            } else if (pageData.id === 5) {
+                 // Halaman INTERAKTIF 3: Input Text
+                contentHTML = `
+                    ${titleHTML}
+                    <p class="text-lg mb-6 text-fuchsia-600 font-bold">${pageData.content}</p>
+                    <textarea id="user-input" rows="3" class="w-full p-4 border-2 border-fuchsia-400 bg-fuchsia-50 rounded-xl focus:ring-fuchsia-500 focus:border-fuchsia-500 resize-none text-gray-700 shadow-inner font-semibold" placeholder="Bisa satu kata yang cool..."></textarea>
+                    <p id="input-feedback" class="text-sm mt-3 text-red-500 font-semibold hidden">Tolong isi dulu ya, ini penting untuk Bab Terakhir! :(</p>
+                `;
+            } else if (pageData.id === 8) {
+                 // Halaman Statis Sweet Text (MODIFIKASI: Menggantikan Joke)
+                contentHTML = `
+                    ${titleHTML}
+                    <div class="message-box bg-pink-100 p-6 rounded-xl shadow-lg border border-fuchsia-300">
+                        <p class="text-lg leading-relaxed text-gray-700 font-medium">${pageData.content}</p>
+                        <p class="text-5xl mt-4 text-fuchsia-600 font-black">HUG</p>
+                    </div>
+                `;
+            } else if (pageData.id === 14) {
+                 // Halaman FINAL (Bab 14)
+                contentHTML = `
+                    <h1 class="text-4xl font-extrabold mb-6"><span class="title-style text-4xl">Bab Unstoppable</span></h1>
+                    <div class="message-box bg-fuchsia-100 p-8 rounded-3xl shadow-2xl border-4 border-fuchsia-400">
+                        <p class="text-xl leading-relaxed text-gray-700 mb-6 font-semibold">${pageData.content}</p>
+                        <p class="text-3xl font-extrabold text-fuchsia-700 mt-6 animate-pulse">
+                            I LOVE YOU ALWAYS! <span class="text-5xl font-black text-fuchsia-600">BOSS</span>
+                        </p>
+                        <p class="text-xl italic text-gray-500 mt-4">— [Nama Anda di sini]</p>
+                        <div class="mt-6 pt-4 border-t border-fuchsia-300">
+                           <p class="text-base text-gray-600 font-semibold">
+                             Kata Kunci Bab 5: 
+                           </p>
+                           <p class="text-2xl font-black text-fuchsia-600 mt-1">
+                             ${collectedInput ? '"""' + collectedInput.toUpperCase() + '"""' : 'BELUM DIISI'}
+                           </p>
+                        </div>
+                    </div>
+                `;
+            } 
+            else {
+                // Halaman Statis
+                contentHTML = `
+                    ${titleHTML}
+                    <div class="message-box bg-fuchsia-50 p-6 rounded-xl shadow-lg border border-fuchsia-200">
+                        <p class="text-lg leading-relaxed text-gray-700 font-medium">${pageData.content}</p>
+                    </div>
+                `;
+            }
+
+            mainContent.innerHTML = contentHTML;
+            updateNavigation(pageData);
+        }
+
+        function updateNavigation(pageData) {
+            pageIndicator.textContent = Bab ${currentPage}/${pages.length};
+
+            if (currentPage > 1) { prevBtn.classList.remove('hidden'); } else { prevBtn.classList.add('hidden'); }
+            
+            if (currentPage < pages.length) {
+                nextBtn.classList.remove('hidden');
+                nextBtn.textContent = pageData.nextText || 'Lanjut >>';
+                nextBtn.disabled = false;
+            } else {
+                nextBtn.classList.add('hidden');
+            }
+
+            if (pageData.id === 2 && currentComplimentIndex < pageData.content.length) {
+                nextBtn.classList.add('hidden'); 
+            } else if (pageData.id === 3 && !quizAnswerRevealed) {
+                nextBtn.classList.add('hidden');
+            } else if (pageData.id === 5) {
+                nextBtn.onclick = validateAndContinue; 
+            } else {
+                nextBtn.onclick = () => changePage(1);
+            }
+        }
+        
+        function revealNextCompliment() {
+            const compliments = pages[1].content;
+            if (currentComplimentIndex < compliments.length) {
+                const item = document.getElementById(comp-${currentComplimentIndex});
+                if (item) {
+                    item.classList.remove('hidden');
+                    currentComplimentIndex++;
+                }
+            }
+            
+            const btn = document.getElementById('comp-reveal-btn');
+            if (currentComplimentIndex < compliments.length) {
+                btn.textContent = Ungkapkan Komplimen (${currentComplimentIndex + 1}/${compliments.length});
+            } else {
+                btn.textContent = 'Semua Komplimen Terungkap! <3'; 
+                btn.disabled = true;
+                nextBtn.classList.remove('hidden');
+                nextBtn.onclick = () => changePage(1);
+            }
+        }
+
+        function revealQuizAnswer() {
+            const answerBox = document.getElementById('quiz-answer');
+            const btn = document.getElementById('quiz-btn');
+            if (answerBox && btn) {
+                answerBox.classList.remove('hidden');
+                btn.classList.add('hidden');
+                quizAnswerRevealed = true;
+                nextBtn.classList.remove('hidden');
+                nextBtn.onclick = () => changePage(1);
+            }
+        }
+
+        function validateAndContinue() {
+            const inputElement = document.getElementById('user-input');
+            const feedback = document.getElementById('input-feedback');
+
+            if (inputElement && inputElement.value.trim() === '') {
+                feedback.classList.remove('hidden');
+                inputElement.focus();
+                return; 
+            }
+            
+            collectedInput = inputElement.value.trim();
+            changePage(1);
+        }
+
+        // --- INICIALISASI ---
+        window.onload = () => {
+            renderPage();
+        };
+        
+        function signInAnonymously(auth) { /* placeholder */ }
+        function getAuth(db) { /* placeholder */ }
+        function getFirestore(app) { /* placeholder */ }
+
+    </script>
+
+</body>
+</html>
